@@ -5,8 +5,12 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+rl.on("close", () => {
+  process.exit(0);
+});
+
 const recursiveReadLine = () => {
-  rl.question("", (answer) => {
+  rl.question("Type string to reverse: ", (answer) => {
     if (answer === "exit") {
       rl.close();
     }
@@ -15,9 +19,5 @@ const recursiveReadLine = () => {
     recursiveReadLine();
   });
 };
-
-rl.on("close", () => {
-  process.exit(0);
-});
 
 recursiveReadLine();
