@@ -1,0 +1,34 @@
+{
+  "name": "nodejs-gmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "task1": "nodemon --exec ts-node src/task1.ts",
+    "task2": "nodemon --exec ts-node src/task2.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auchynnikau/nodejs-gmp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/auchynnikau/nodejs-gmp/issues"
+  },
+  "homepage": "https://github.com/auchynnikau/nodejs-gmp#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-typescript": "^7.13.0",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.35",
+    "dotenv": "^8.2.0",
+    "typescript": "^4.2.3"
+  }
+}
