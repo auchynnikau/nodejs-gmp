@@ -1,9 +1,8 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-import models from './app/models';
 import routes from './app/routes';
-import { Request, Response } from 'express';
+import { userContext } from './app/middlewares/userContext';
 
 const corsOptions = {
   origin: 'http://localhost:8081',
@@ -12,18 +11,9 @@ const corsOptions = {
 const app = express();
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use((req: Request, res: Response, next) => {
-  req.context = {
-    models,
-  };
-
-  next();
-});
-
+app.use(userContext);
 app.use('/users', routes.user);
 
 const PORT = process.env.PORT || 8080;
