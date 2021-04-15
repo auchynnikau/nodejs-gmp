@@ -1,9 +1,17 @@
 import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { UserProps } from '../models/users';
+import { getAutoSuggestUsers } from '../services/getAutoSuggestUsers';
 
 export const getUsers = (req: Request, res: Response) => {
-  return res.send(Object.values(req.context.models.users));
+  const { users } = req.context.models;
+  const { login, limit } = req.params;
+
+  if (login) {
+    return res.send(getAutoSuggestUsers(login, Number(limit)));
+  }
+
+  return res.send(users);
 };
 
 export const getUserById = (req: Request, res: Response) => {
