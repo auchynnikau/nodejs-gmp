@@ -1,5 +1,5 @@
-import { users } from './users';
+import { usersModel } from './users';
 
 export default {
-  users,
+  usersModel,
 };

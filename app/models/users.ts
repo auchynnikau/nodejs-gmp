@@ -6,7 +6,7 @@ export interface UserProps {
   isDeleted: boolean;
 }
 
-export const users: UserProps[] = [
+export const usersMocks: UserProps[] = [
   {
     id: '1',
     login: 'username1',
@@ -36,3 +36,17 @@ export const users: UserProps[] = [
     isDeleted: false,
   },
 ];
+
+class UsersModel {
+  private _users: UserProps[] = [...usersMocks];
+
+  public get users(): UserProps[] {
+    return this._users;
+  }
+
+  public set users(users: UserProps[]) {
+    this._users = [...users];
+  }
+}
+
+export const usersModel = new UsersModel();
